@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import About from './About';
 import Nav from './Nav';
+import Home from './Home';
 import Shop from './Shop';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
@@ -11,8 +12,12 @@ function App() {
     <Router>
       <div className="App">
           <Nav/>
-          <About/>
-          <Shop/>
+          <Switch>
+            <Route path="/" exact component={Home}/>
+            <Route path="/about" component={About}/>
+            <Route path="/shop" component={Shop}/>
+          </Switch>
+          
       </div>
     </Router>
   );
