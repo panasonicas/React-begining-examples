@@ -9,12 +9,12 @@ function Item({ match }) {
       //console.log(match);
 },[]);
 
-const [item, setItem] = useState({});
+const [item, setItem] = useState([]);
 
 
 
 const fetchItem = async () =>{
-  const fetchItem = await fetch(`https://fortnite-api.theapinetwork.com/item/get?id={{${match.params.id}}}`);
+  const fetchItem = await fetch(``);
   const item = await fetchItem.json();
   setItem(item);
   console.log(item);

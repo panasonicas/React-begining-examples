@@ -14,9 +14,16 @@ const [items, setItems] = useState([]);
 
 
 const fechItems = async () =>{
-  const data = await fetch('https://fortnite-api.theapinetwork.com/store/get');
+  const data = await fetch('https://fortnite-api.theapinetwork.com/store/get'
+  // , { 
+  //   method: 'GET', 
+  //   headers: new Headers({
+  //     'Authorization': '52fe88d3-15b275a6-d381cbbb-a894f0c0'
+  //   })
+  // }
+  );
   const items = await data.json();
-  //console.log(items.data);
+  console.log(items.data);
   setItems(items.data);
 };
 
