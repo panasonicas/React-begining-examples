@@ -1,11 +1,12 @@
 import React from 'react';
+import TodoItem from './TodoItem';
 
 
 function Todoos({todo}) {
   return (
     <div>
     {todo.map(task=>(
-      <h3>{task.title}</h3>
+      <TodoItem key={task.id} todo={task}/>
     ))}
     </div>
   );
