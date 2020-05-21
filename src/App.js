@@ -9,7 +9,7 @@ function App() {
       {
         id:1,
         title:'nupirkti bananu',
-        completed: false
+        completed: true
       },
       {
         id:2,
