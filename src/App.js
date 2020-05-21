@@ -4,7 +4,7 @@ import Todoos from './components/Todoos';
 
 function App() {
 
- const state = {
+ const data = {
     todos : [
       {
         id:1,
@@ -22,13 +22,13 @@ function App() {
     ]
   }
 
-  console.log(state.todos);
+  console.log(data.todos);
 
   return (
    
     <div className="App">
     <h1>To do list</h1>
-    <Todoos todo={state.todos} />
+    <Todoos todos={data.todos} />
     </div>
   );
 }
