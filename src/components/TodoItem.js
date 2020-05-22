@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const TodoItem = ({ todo, markComplete}) => {
+const TodoItem = ({ todo, markComplete, delTodo}) => {
 
     
     
@@ -22,11 +22,21 @@ const TodoItem = ({ todo, markComplete}) => {
             <p>
                 <input type="checkbox" onChange = {markComplete.bind(this, todo.id)}/> {"    "}
                 {todo.title}
+                <button style={btnStyle} onClick={delTodo.bind(this, todo.id)}>X</button>
             </p>
         </div>
     )
 };
 
+const btnStyle = {
+    background : '#ff0000',
+    color : '#fff',
+    border : 'none',
+    padding : '5px 10px',
+    borderRadius : '50%',
+    cursor : 'pointer',
+    float : 'right'
+}
 
 
 //PropTypes
