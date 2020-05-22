@@ -3,11 +3,14 @@ import TodoItem from './TodoItem';
 import PropTypes from 'prop-types';
 
 
-function Todoos({todos}) {
+function Todoos({todos, markComplete}) {
+
+
+
   return (
     <div>
     {todos.map(task=>(
-      <TodoItem key={task.id} todo={task}/>
+      <TodoItem key={task.id} todo={task} markComplete={markComplete}/>
     ))}
     </div>
   );

@@ -1,30 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const itemStyle = {
-    'backgroundColor':'red',
-    'textTransform' : 'Uppercase'
-};
-
-
-
-
-const TodoItem = ({todo}) => {
+const TodoItem = ({todo, markComplete}) => {
 
     const getStyle = () => {
         return {
+            backgroundColor:'#f4f4f4',
+            padding: '10px',
+            borderBottom: '1px solid grey',
             textDecoration: todo.completed ? 'line-through' : 'none' //ternary operator
         }
     }
-  
+
+    // const itemStyle = {
+    //     'backgroundColor':'red',
+    //     'textTransform' : 'Uppercase'
+    // };
+    const {id, title} = todo;        
 
     return (
         //inline style markup
         //<div style={{backgroundColor : '#f4f4f4'}}> 
-
-        //Style with const itemStyle
         <div style={getStyle()}> 
-            <p>{todo.title}</p>
+            <p>
+                <input type="checkbox" onChange = {markComplete.bind(this, id)}/> {"    "}
+                {title}
+            </p>
         </div>
     )
 };

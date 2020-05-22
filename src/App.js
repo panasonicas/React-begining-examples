@@ -23,12 +23,15 @@ function App() {
   }
 
   console.log(data.todos);
+  const markComplete = (id) => {
+    console.log(id);
+  }
 
   return (
    
     <div className="App">
     <h1>To do list</h1>
-    <Todoos todos={data.todos} />
+    <Todoos todos={data.todos} markComplete={markComplete} />
     </div>
   );
 }
