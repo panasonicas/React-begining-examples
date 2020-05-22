@@ -9,23 +9,36 @@ function App() {
       {
         id:1,
         title:'nupirkti bananu',
-        completed: true
+        completed: false
       },
       {
         id:2,
         title:'paskaityti knyga',
-        completed: false},
+        completed: false
+      },
       {
         id:3,
         title:'padaryti manksta',
-        completed: false}
+        completed: false
+      }
     ]
   }
 
   console.log(data.todos);
+
   const markComplete = (id) => {
-    console.log(id);
+    data.todos.map(todo => {
+      if(todo.id === id){
+        todo.completed = !todo.completed
+        console.log(data.todos);
+      }
+      return todo;
+    })
   }
+
+  // const markComplete = (id) => {
+  //   console.log(id);
+  // }
 
   return (
    

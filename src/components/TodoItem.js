@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 const TodoItem = ({todo, markComplete}) => {
 
     const getStyle = () => {
+        console.log('updating style');
         return {
             backgroundColor:'#f4f4f4',
             padding: '10px',
@@ -16,15 +17,15 @@ const TodoItem = ({todo, markComplete}) => {
     //     'backgroundColor':'red',
     //     'textTransform' : 'Uppercase'
     // };
-    const {id, title} = todo;        
+    //const {id, title} = todo;        
 
     return (
         //inline style markup
         //<div style={{backgroundColor : '#f4f4f4'}}> 
         <div style={getStyle()}> 
             <p>
-                <input type="checkbox" onChange = {markComplete.bind(this, id)}/> {"    "}
-                {title}
+                <input type="checkbox" onChange = {markComplete.bind(this, todo.id)}/> {"    "}
+                {todo.title}
             </p>
         </div>
     )
