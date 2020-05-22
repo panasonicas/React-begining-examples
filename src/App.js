@@ -1,11 +1,10 @@
-import React from 'react';
+import React , {useState} from 'react';
 import './App.css';
 import Todoos from './components/Todoos';
 
 function App() {
 
- const data = {
-    todos : [
+  const [data, setData] = useState([
       {
         id:1,
         title:'nupirkti bananu',
@@ -22,31 +21,27 @@ function App() {
         completed: false
       }
     ]
-  }
-
-  console.log(data.todos);
-
+  );
+  
   const markComplete = (id) => {
-    data.todos.map(todo => {
+     setData(data.map(todo => {
       if(todo.id === id){
-        todo.completed = !todo.completed
-        console.log(data.todos);
+        (todo.completed = !todo.completed);
       }
       return todo;
-    })
+    }) );
   }
-
-  // const markComplete = (id) => {
-  //   console.log(id);
-  // }
-
+  
+ 
   return (
    
     <div className="App">
     <h1>To do list</h1>
-    <Todoos todos={data.todos} markComplete={markComplete} />
+    <Todoos todos={data} markComplete={markComplete} />
     </div>
   );
 }
 
 export default App;
+
+

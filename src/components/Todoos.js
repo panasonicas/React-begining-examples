@@ -15,7 +15,7 @@ function Todoos({todos, markComplete}) {
     </div>
   );
 }
-
+ 
 //PropTypes
 Todoos.propTypes = {
   todos:PropTypes.array.isRequired
