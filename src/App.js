@@ -22,9 +22,9 @@ function App() {
       completed: false,
     },
   ];
-  let stateDate = firstData;
+  
 
-  const [data, setData] = useState(stateDate);
+  const [data, setData] = useState(firstData);
 
   //Togle Complete
   const markComplete = (id) => {
@@ -43,11 +43,21 @@ function App() {
     setData([...data.filter((todo) => todo.id !== id)]);
   };
 
+  //Add Todo
+  const addTodo = (state) => {
+    const newTodo = {
+      id: 4,
+      title: state,
+      completed: false,
+    }
+    setData([...data, newTodo]);
+  }
+
   return (
     <div className="App">
       <div className="container">
         <Header />
-        <AddTodo />
+        <AddTodo addTodo={addTodo} />
         <Todoos todos={data} markComplete={markComplete} delTodo={delTodo} />
       </div>
     </div>

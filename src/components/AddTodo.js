@@ -1,23 +1,33 @@
 import React, {useState} from "react";
 
-const AddTodo = () => {
-  let state = {
-    title: "",
+let AddTodo = ({addTodo}) => {
+  let inputas = {
+    title: "kastonas",
   };
-  const [value, setValue] = useState(state);
-  const onChange = (e) => {
-    setValue(e.target.state.title);
+  
+  //VEIKIA
+  const [state, setState] = useState(inputas.title); 
+  const onChange = (e) => {    
+    setState(e.target.value);
+    //console.log(state); //State yra kintama reiksme ir lygi ka ivedame i input lauka
   } 
+
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    addTodo(state);
+    setState('');
+  }
 
   return (
     <div>
-      <form style={{ display: "flex" }}>
+      <form onSubmit={onSubmit} style={{ display: "flex" }}>
         <input
           type="text"
           name="title"
           placeholder="Add todo..."
           style={{ flex: "10", pading: "10px" }}
-          value={state.title}
+          value={state}
           onChange={onChange}
         />
         <input
