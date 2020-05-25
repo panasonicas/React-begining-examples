@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import "./App.css";
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Todoos from "./components/Todoos";
 import Header from "./components/layouts/Header";
 import AddTodo from "./components/AddTodo";
+import About from "./components/pages/About";
 import { v4 as uuidv4 } from 'uuid';
 
 function App() {
@@ -60,8 +61,15 @@ function App() {
       <div className="App">
         <div className="container">
           <Header />
-          <AddTodo addTodo={addTodo} />
-          <Todoos todos={data} markComplete={markComplete} delTodo={delTodo} />
+          <Route path='/' exact>
+            <Fragment>
+              <AddTodo addTodo={addTodo} />
+              <Todoos todos={data} markComplete={markComplete} delTodo={delTodo} />
+            </Fragment>
+          </Route>
+          <Route path='/about'>
+            <About/>
+          </Route>
         </div>
       </div>
     </Router>
