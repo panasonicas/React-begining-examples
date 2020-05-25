@@ -3,21 +3,22 @@ import "./App.css";
 import Todoos from "./components/Todoos";
 import Header from "./components/layouts/Header";
 import AddTodo from "./components/AddTodo";
+import { v4 as uuidv4 } from 'uuid';
 
 function App() {
   let firstData = [
     {
-      id: 1,
+      id: uuidv4(),
       title: "nupirkti bananu",
       completed: false,
     },
     {
-      id: 2,
+      id: uuidv4(),
       title: "paskaityti knyga",
       completed: false,
     },
     {
-      id: 3,
+      id: uuidv4(),
       title: "padaryti manksta",
       completed: false,
     },
@@ -46,7 +47,7 @@ function App() {
   //Add Todo
   const addTodo = (state) => {
     const newTodo = {
-      id: 4,
+      id: uuidv4(),
       title: state,
       completed: false,
     }
