@@ -2,7 +2,7 @@ import React, {useState} from "react";
 
 let AddTodo = ({addTodo}) => {
   let inputas = {
-    title: "kastonas",
+    title: "",
   };
   
   //VEIKIA

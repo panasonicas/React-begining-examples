@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment, useEffect } from "react";
 import "./App.css";
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Todoos from "./components/Todoos";
@@ -6,26 +6,32 @@ import Header from "./components/layouts/Header";
 import AddTodo from "./components/AddTodo";
 import About from "./components/pages/About";
 import { v4 as uuidv4 } from 'uuid';
+import axios from 'axios';
+
 
 function App() {
   let firstData = [
-    {
-      id: uuidv4(),
-      title: "nupirkti bananu",
-      completed: false,
-    },
-    {
-      id: uuidv4(),
-      title: "paskaityti knyga",
-      completed: false,
-    },
-    {
-      id: uuidv4(),
-      title: "padaryti manksta",
-      completed: false,
-    },
+    // {
+    //   id: uuidv4(),
+    //   title: "nupirkti bananu",
+    //   completed: false,
+    // },
+    // {
+    //   id: uuidv4(),
+    //   title: "paskaityti knyga",
+    //   completed: false,
+    // },
+    // {
+    //   id: uuidv4(),
+    //   title: "padaryti manksta",
+    //   completed: false,
+    // },
   ];
   
+  useEffect(() => {
+    axios.get('https://jsonplaceholder.typicode.com/todos?_limit=10')
+    .then(res => setData(res.data))
+  }, []);
 
   const [data, setData] = useState(firstData);
 
