@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Todoos from "./components/Todoos";
 import Header from "./components/layouts/Header";
 import AddTodo from "./components/AddTodo";
@@ -55,13 +56,15 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <div className="container">
-        <Header />
-        <AddTodo addTodo={addTodo} />
-        <Todoos todos={data} markComplete={markComplete} delTodo={delTodo} />
+    <Router>
+      <div className="App">
+        <div className="container">
+          <Header />
+          <AddTodo addTodo={addTodo} />
+          <Todoos todos={data} markComplete={markComplete} delTodo={delTodo} />
+        </div>
       </div>
-    </div>
+    </Router>
   );
 }
 
